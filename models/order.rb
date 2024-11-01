@@ -5,6 +5,8 @@ class Order
   attr_accessor :line_items, :total_taxes, :total
 
   OrderNotPresentError = Class.new(StandardError)
+  EmptyOrderError = Class.new(StandardError)
+  InvalidAttributeError = Class.new(StandardError)
 
   def initialize
     self.line_items = []

@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require './models/order'
+
 module Orders
   # Service to print an order
   class Printer

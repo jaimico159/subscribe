@@ -10,17 +10,23 @@ module Orders
   class StringLinesToOrder
     attr_accessor :line, :order
 
+    InvalidLineError = Class.new(StandardError)
+
     def initialize
       self.order = Order.new
     end
 
     def call(line)
+      raise InvalidLineError if line.nil? || line.empty?
+
       self.line = line
       process_line
       self.line = nil
     end
 
     def process_order
+      raise Order::EmptyOrderError if order.line_items.empty?
+
       order.line_items.each do |line_item|
         product = line_item.product
         strategy = Products::TaxCalculator.new(product: product)
@@ -39,6 +45,8 @@ module Orders
     def process_line
       first_part, price = line.split(' at ')
       quantity, name = first_part.split(' ', 2)
+
+      raise Order::InvalidAttributeError if first_part.nil? || price.nil? || quantity.nil? || name.nil?
 
       product = Product.new(name: name, base_price: price.to_f)
       line_item = LineItem.new(product: product, quantity: quantity.to_i)

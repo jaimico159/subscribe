@@ -15,7 +15,7 @@
 
 - To process an order run: 
 ```ruby
-irb app.rb
+ruby app.rb
 ```
 It will require you to copy paste the input to the standard input thorugh the console.
 For example:
@@ -39,4 +39,9 @@ The script will make the tax calculations and will print the result.
 "3 imported boxes of chocolates: 35.55"
 "Sales Taxes: 7.90"
 "Total: 98.38"
+```
+
+To run the tests run:
+```ruby
+rake
 ```
