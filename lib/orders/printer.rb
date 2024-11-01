@@ -11,6 +11,7 @@ module Orders
       end
       p "Sales Taxes: #{format('%.2f', order.total_taxes)}"
       p "Total: #{format('%.2f', order.total)}"
+      nil
     end
   end
 end
