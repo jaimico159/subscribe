@@ -7,7 +7,7 @@ class LineItem
   def initialize(product:, quantity:)
     self.product = product
     self.quantity = quantity
-    total_taxes = 0.0
-    total = 0.0
+    self.total_taxes = 0.0
+    self.total = 0.0
   end
 end
