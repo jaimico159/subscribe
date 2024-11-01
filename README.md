@@ -8,10 +8,20 @@
 
 ##### Assumptions for the problem:
 - The line inputs will always have the form: `<quantity> <product_name> at <base_price>`
+- The input is in lowercase
 - quantity is always an integer
 - product name is a string
 - base_price is a float
+- Exempt products will contain one of the following words: choco, book or pill
+- Imported products will start with the string imported
 - The script will treat the data as such.
+
+Example:
+
+- "imported chocolate" bar will be taxed only for being imported since choco is present and it is exempt locally
+- "chocolate bar" will be tax free
+- "pills pack" will be tax free
+- "imported shoes" will be taxed for basic tax and for being imported
 
 - To process an order run: 
 ```ruby
